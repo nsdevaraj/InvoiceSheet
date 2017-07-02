@@ -142,7 +142,7 @@ angular.module('invoicing',  ['cmGoogleApi'])
 		// and https://developers.google.com/identity/protocols/OAuth2WebServer
 		 gapi.auth.authorize(
           {
-            'client_id': $scope.clientId,
+            'client_id':'598025943249-e0lk9nun0qsg054q3pi59his8eugsnjt.apps.googleusercontent.com',
             'scope': 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/drive.metadata.readonly',
             'immediate': true
           }, null);
