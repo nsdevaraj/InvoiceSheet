@@ -212,6 +212,8 @@ angular.module('invoicing',  ['cmGoogleApi'])
   })()
   // Adds an item to the invoice's items
   $scope.addItem = function() {
+	  
+	addBill();
     $scope.invoice.items.push({ qty:0, cost:0, description:"" });
   }
 
