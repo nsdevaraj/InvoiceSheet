@@ -177,18 +177,6 @@ angular.module('invoicing',  ['cmGoogleApi'])
 		});
 	};
   
-	$scope.addBill = function() {
-		gapi.client.sheets.spreadsheets.values.update({
-                    spreadsheetId:  $scope.spreadsheetId,
-                    range: 'Sheet1!B2',
-                    valueInputOption: 'USER_ENTERED',
-					insertDataOption: "INSERT_ROWS",
-                    values: [ ["123"] ]
-        }).then(function(response) {
-                    console.log(response);
-		}); 
-     
-	}
   // Set defaults
   $scope.currencySymbol = 'र';
   $scope.logoRemoved = false;
@@ -213,10 +201,22 @@ angular.module('invoicing',  ['cmGoogleApi'])
   // Adds an item to the invoice's items
   $scope.addItem = function() {
 	  
-	addBill();
+	$scope.addBill();
     $scope.invoice.items.push({ qty:0, cost:0, description:"" });
   }
 
+	$scope.addBill = function() {
+		gapi.client.sheets.spreadsheets.values.update({
+                    spreadsheetId:  $scope.spreadsheetId,
+                    range: 'Sheet1!B2',
+                    valueInputOption: 'USER_ENTERED',
+					insertDataOption: "INSERT_ROWS",
+                    values: [ ["123"] ]
+        }).then(function(response) {
+                    console.log(response);
+		}); 
+     
+	}
   // Toggle's the logo
   $scope.toggleLogo = function(element) {
     $scope.logoRemoved = !$scope.logoRemoved;
