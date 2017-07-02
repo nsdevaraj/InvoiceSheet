@@ -177,7 +177,7 @@ angular.module('invoicing',  ['cmGoogleApi'])
 		});
 	};
   
-	$scope.addBill = function($scope.invoice) {
+	$scope.addBill = function() {
 		gapi.client.sheets.spreadsheets.values.update({
                     spreadsheetId:  $scope.spreadsheetId,
                     range: 'Sheet1!B2',
