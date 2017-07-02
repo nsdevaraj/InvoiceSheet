@@ -133,7 +133,7 @@ angular.module('invoicing',  ['cmGoogleApi'])
  
   	$scope.isSignedIn = false;
 	$scope.user = "";  
-
+	$scope.spreadsheetId ='1phQxiZXnFfZ0oz9llS3H88UD0D5o6QK5QKg5YaUQ0x0'
 	var signInCallback = function(authResult) {
 		// Here you can send code to the server,
 		// to obtain access_token and refresh_token server side.
@@ -177,7 +177,18 @@ angular.module('invoicing',  ['cmGoogleApi'])
 		});
 	};
   
-	
+	$scope.addBill = function($scope.invoice) {
+		gapi.client.sheets.spreadsheets.values.update({
+                    spreadsheetId:  $scope.spreadsheetId,
+                    range: 'Sheet1!B2',
+                    valueInputOption: 'USER_ENTERED',
+					insertDataOption: "INSERT_ROWS",
+                    values: [ ["123"] ]
+        }).then(function(response) {
+                    console.log(response);
+		}); 
+     
+	}
   // Set defaults
   $scope.currencySymbol = 'र';
   $scope.logoRemoved = false;
