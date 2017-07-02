@@ -133,12 +133,19 @@ angular.module('invoicing',  ['cmGoogleApi'])
  
   	$scope.isSignedIn = false;
 	$scope.user = "";  
+	$scope.clientId ='598025943249-e0lk9nun0qsg054q3pi59his8eugsnjt.apps.googleusercontent.com'
 	$scope.spreadsheetId ='1phQxiZXnFfZ0oz9llS3H88UD0D5o6QK5QKg5YaUQ0x0'
 	var signInCallback = function(authResult) {
 		// Here you can send code to the server,
 		// to obtain access_token and refresh_token server side.
 		// See https://developers.google.com/identity/sign-in/web/server-side-flow
 		// and https://developers.google.com/identity/protocols/OAuth2WebServer
+		 gapi.auth.authorize(
+          {
+            'client_id': $scope.clientId,
+            'scope': 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/drive.metadata.readonly',
+            'immediate': true
+          }, null);
 	};
 
 	// Listen for sign-in state changes. See https://developers.google.com/identity/sign-in/web/listeners
@@ -314,7 +321,7 @@ angular.module('invoicing',  ['cmGoogleApi'])
 			fetch_basic_profile: true
 		})
 		
-		.setClientId('598025943249-e0lk9nun0qsg054q3pi59his8eugsnjt.apps.googleusercontent.com')
+		.setClientId($scope.clientId)
 /*		.addScope('https://www.googleapis.com/auth/drive.readonly')
 		.addScope(' https://www.googleapis.com/auth/youtube')*/
 		
