@@ -305,7 +305,7 @@ angular.module('invoicing',  ['cmGoogleApi'])
 /*		.addScope('https://www.googleapis.com/auth/drive.readonly')
 		.addScope(' https://www.googleapis.com/auth/youtube')*/
 		
-        .addScope('https://www.googleapis.com/auth/spreadsheets')
+       // .addScope('https://www.googleapis.com/auth/spreadsheets')
 		.addScope('https://www.googleapis.com/auth/drive.metadata.readonly')
 		.addApi('drive', 'v4')
 		.loadPickerLibrary();
